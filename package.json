@@ -1,0 +1,15 @@
+{
+  "name": "hack",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "setup": "npm install && bower install",
+    "watch": "brunch watch --server"
+  },
+  "dependencies": {
+    "brunch": "~1.7.18",
+    "javascript-brunch": "1.0 - 1.8",
+    "css-brunch": "1.0 - 1.8",
+    "auto-reload-brunch": "1.0 - 1.8"
+  }
+}
