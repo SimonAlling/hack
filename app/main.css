@@ -35,3 +35,22 @@ body {
   position: relative;
   top: -50px;
 }
+
+.glow {
+  animation: glow 200ms ease-in;
+}
+.glow-negative {
+  color: rgba(200, 0, 0, 0.5);
+}
+.glow-positive {
+  color: rgba(0, 128, 0, 1);
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 100px 100px currentColor;
+  }
+  to {
+    box-shadow: none;
+  }
+}
