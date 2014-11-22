@@ -11,9 +11,9 @@ body {
 }
 
 .homeButton {
-	margin: 600px auto;
-	width: 64px;
-	height: 64px;
-	border-radius: 48px;
-	border: 10px rgba(255, 255, 255, 0.6) solid;
+  margin: 600px auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 48px;
+  border: 10px rgba(255, 255, 255, 0.6) solid;
 }
