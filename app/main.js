@@ -1,8 +1,2 @@
-var hello = require("hello");
-var promise = require("fulltest");
+var rotation = require("rotation");
 
-hello();
-
-console.log(FULLTILT);
-
-console.log(promise);
