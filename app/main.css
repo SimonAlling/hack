@@ -38,19 +38,24 @@ body {
   top: -50px;
 }
 
-.glow {
-  animation: glow 200ms ease-in;
-}
 .glow-negative {
-  color: rgba(200, 0, 0, 0.5);
+  animation: glow-negative 200ms ease-in;
 }
 .glow-positive {
-  color: rgba(0, 128, 0, 1);
+  animation: glow-positive 200ms ease-in;
 }
 
-@keyframes glow {
+@keyframes glow-negative {
   from {
-    box-shadow: 0 0 100px 100px currentColor;
+    box-shadow: 0 0 100px 100px rgba(200, 0, 0, 0.5);
+  }
+  to {
+    box-shadow: none;
+  }
+}
+@keyframes glow-positive {
+  from {
+    box-shadow: 0 0 100px 100px rgba(0, 128, 0, 1);
   }
   to {
     box-shadow: none;
