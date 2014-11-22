@@ -58,10 +58,6 @@ function isAngleBetween(angle, start, end) {
   }
 }
 
-Phone.prototype.glow = function(x) {
-
-};
-
 Phone.prototype.isEqualRotation = function(rotation) {
   return isAngleBetween(
     rotation,
