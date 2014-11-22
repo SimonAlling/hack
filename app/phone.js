@@ -43,7 +43,7 @@ function modulo(a, b) {
 }
 
 Phone.prototype.refreshScore = function(lastAlpha) {
-  this.scoreElement.textContent = this.score + "<br><span>" + this.ticks + "</span>";
+  this.scoreElement.innerHTML = this.score + "<br><span>" + this.ticks + "</span>";
   this.scoreElement.style.transform = "rotate(" + ((this.angle) % 360) + "deg)";
 };
 
