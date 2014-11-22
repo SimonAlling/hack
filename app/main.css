@@ -8,8 +8,8 @@ body {
   width: 400px;
   background: black;
   border-radius: 64px;
-  -webkit-transition-property: transform;
-  -webkit-transition-duration: 200ms;
+  transition-property: transform;
+  transition-duration: 200ms;
 }
 
 .homeButton {
@@ -39,13 +39,13 @@ body {
 }
 
 .glow-negative {
-  -webkit-animation: glow-negative 200ms ease-in;
+  animation: glow-negative 200ms ease-in;
 }
 .glow-positive {
-  -webkit-animation: glow-positive 200ms ease-in;
+  animation: glow-positive 200ms ease-in;
 }
 
-@-webkit-keyframes glow-negative {
+@keyframes glow-negative {
   from {
     box-shadow: 0 0 100px 100px rgba(200, 0, 0, 0.5);
   }
@@ -53,7 +53,7 @@ body {
     box-shadow: none;
   }
 }
-@-webkit-keyframes glow-positive {
+@keyframes glow-positive {
   from {
     box-shadow: 0 0 100px 100px rgba(0, 128, 0, 1);
   }
