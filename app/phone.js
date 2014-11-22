@@ -12,6 +12,7 @@ function Phone(options) {
   this.element.appendChild(this.scoreElement);
 
   this.score = 0;
+  this.ticks = 0;
   this.angle = 0;
   this.tolerance = options.tolerance || 10;
 }
@@ -33,12 +34,16 @@ Phone.prototype.incrementScore = function() {
   this.score++;
 };
 
+Phone.prototype.incrementTick = function() {
+  this.tick++;
+};
+
 function modulo(a, b) {
   return (+a % (b = +b) + b) % b;
 }
 
 Phone.prototype.refreshScore = function(lastAlpha) {
-  this.scoreElement.textContent = this.score;
+  this.scoreElement.textContent = this.score + "<br><span>" + this.ticks + "</span>";
   this.scoreElement.style.transform = "rotate(" + ((this.angle) % 360) + "deg)";
 };
 
@@ -52,6 +57,10 @@ function isAngleBetween(angle, start, end) {
     return (angle < end && angle >= start);
   }
 }
+
+Phone.prototype.glow = function(x) {
+
+};
 
 Phone.prototype.isEqualRotation = function(rotation) {
   return isAngleBetween(

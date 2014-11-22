@@ -2,8 +2,8 @@
 
 
 var settings = {
-  tickrate: 20, // bpm
-  tolerance: 10
+  tickrate: 40, // bpm
+  tolerance: 15
 };
 
 
