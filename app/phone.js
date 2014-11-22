@@ -7,7 +7,7 @@ function Phone() {
 
 Phone.prototype.setRotation = function(deg) {
   this.rotation = deg;
-  this.element.style.transform = "rotate(" + deg + "deg)";
+  this.element.style.transform = "rotate(" + -deg + "deg)";
 };
 
 module.exports = Phone;
