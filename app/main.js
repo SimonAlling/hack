@@ -3,7 +3,14 @@ var Phone = require("phone");
 
 hello();
 
-console.log(FULLTILT);
+FULLTILT.getDeviceOrientation({type: "game"})
+  .then(function(deviceOrientation) {
+    deviceOrientation.listen(function() {
+      // do things with deviceOrientation
+    });
+  })
+  .catch(function(error) {
+  });
 
 var phone = new Phone();
 
