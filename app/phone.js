@@ -5,7 +5,7 @@ function Phone(options) {
 
   var homeButton = document.createElement("div");
   homeButton.classList.add("homeButton");
-  this.element.insertBefore(homeButton, null);
+  this.element.appendChild(homeButton);
   this.angle = 0;
   this.tolerance = options.tolerance || 10
 }
