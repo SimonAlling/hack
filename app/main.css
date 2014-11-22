@@ -27,3 +27,7 @@ body {
   top: 288px;
   left: 0;
 }
+
+.score span {
+  font-size: 0.5em;
+}

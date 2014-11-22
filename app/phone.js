@@ -34,8 +34,8 @@ Phone.prototype.incrementScore = function() {
   this.score++;
 };
 
-Phone.prototype.incrementTick = function() {
-  this.tick++;
+Phone.prototype.incrementTicks = function() {
+  this.ticks++;
 };
 
 function modulo(a, b) {

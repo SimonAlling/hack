@@ -64,6 +64,7 @@ document.body.appendChild(phone.element);
 // }, true)
 
 function tick() {
+  phone.incrementTicks();
   if (phone.isEqualRotation(lastAlpha)) {
     phone.incrementScore();
     phone.glow(true);
