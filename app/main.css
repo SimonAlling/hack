@@ -21,6 +21,7 @@ body {
 .score {
   text-align: center;
   width: 400px;
+  height: 300px;
   color: white;
   font-size: 144px;
   position: absolute;
@@ -30,4 +31,7 @@ body {
 
 .score span {
   font-size: 0.5em;
+  color: rgb(160, 160, 160);
+  position: relative;
+  top: -50px;
 }
