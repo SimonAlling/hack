@@ -3,7 +3,8 @@
 
 var settings = {
   tickrate: 40, // bpm
-  tolerance: 15
+  tolerance: 15,
+  totalTicks: 5
 };
 
 
@@ -21,7 +22,7 @@ function initAudio() {
 }
 
 var Phone = require("phone");
-var phone = new Phone({ tolerance: settings.tolerance });
+var phone = new Phone(settings);
 
 var randomAngle = require("randomAngle");
 
@@ -30,7 +31,7 @@ var lastAlpha = 0;
 var lightGreen = "rgba(60, 192, 40, 0.4)";
 var green = "rgba(0, 128, 0, 1)";
 var red = "rgba(200, 0, 0, 0.5)";
-var white = "white";
+var transparent = "rgba(0, 0, 0, 0)";
 
 function msInterval(tickrate) {
   return (1 / (tickrate / 60)) * 1000;
@@ -50,7 +51,6 @@ FULLTILT.getDeviceOrientation({type: "game"})
 
       lastAlpha = euler.alpha;
 
-  console.log(lastAlpha, phone.getAngle());
     });
   })
   .catch(function(error) {
@@ -80,7 +80,7 @@ var timer = setInterval(tick, refreshInterval);
 function draw() {
   phone.redraw(lastAlpha);
 
-  bodyBackground(phone.isEqualRotation(lastAlpha) ? lightGreen : white);
+  bodyBackground(phone.isEqualRotation(lastAlpha) ? lightGreen : transparent);
 
   requestAnimationFrame(draw);
 }

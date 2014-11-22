@@ -1,3 +1,7 @@
+html {
+  background-color: black;
+}
+
 body {
   background-color: white;
 }
@@ -9,9 +13,8 @@ body {
   height: 720px;
   width: 400px;
   background: black;
+  border: 4px white solid;
   border-radius: 64px;
-  transition-property: transform;
-  transition-duration: 200ms;
 }
 
 .homeButton {
@@ -23,6 +26,7 @@ body {
 }
 
 .score {
+  font-family: Cambria, serif;
   text-align: center;
   width: 400px;
   height: 300px;
@@ -37,7 +41,7 @@ body {
   font-size: 0.5em;
   color: rgb(160, 160, 160);
   position: relative;
-  top: -50px;
+  top: -100px;
 }
 
 .glow-negative {

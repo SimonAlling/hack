@@ -14,6 +14,7 @@ function Phone(options) {
   this.score = 0;
   this.ticks = 0;
   this.angle = 0;
+  this.totalTicks = options.totalTicks || 100;
   this.tolerance = options.tolerance || 10;
 }
 
@@ -36,6 +37,13 @@ Phone.prototype.incrementScore = function() {
 
 Phone.prototype.incrementTicks = function() {
   this.ticks++;
+  console.log(this.ticks, this.totalTicks);
+  if (this.ticks === this.totalTicks) {
+    document.body.style.display = "none";
+    if (confirm("Final score: " + this.score + "/" + this.totalTicks + " – play again?")) {
+      window.location.reload();
+    }
+  }
 };
 
 function modulo(a, b) {
