@@ -1,6 +1,10 @@
 function Phone() {
   this.element = document.createElement("div");
   this.element.classList.add("phone");
+
+  var homeButton = document.createElement("div");
+  homeButton.classList.add("homeButton");
+  this.element.insertBefore(homeButton, null);
   this.rotation = 0;
 }
 

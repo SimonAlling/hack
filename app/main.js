@@ -1,16 +1,18 @@
-var hello = require("hello");
 var Phone = require("phone");
-
-hello();
 
 FULLTILT.getDeviceOrientation({type: "game"})
   .then(function(deviceOrientation) {
     deviceOrientation.listen(function() {
       // do things with deviceOrientation
       var euler = deviceOrientation.getScreenAdjustedEuler();
+
+      console.log("alpha: " + euler.alpha);
+      console.log(euler.beta);
+      console.log(euler.gamma);
     });
   })
   .catch(function(error) {
+    console.log(error);
   });
 
 var phone = new Phone();
