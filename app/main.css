@@ -39,13 +39,13 @@ body {
 }
 
 .glow-negative {
-  animation: glow-negative 200ms ease-in;
+  -webkit-animation: glow-negative 200ms ease-in;
 }
 .glow-positive {
-  animation: glow-positive 200ms ease-in;
+  -webkit-animation: glow-positive 200ms ease-in;
 }
 
-@keyframes glow-negative {
+@-webkit-keyframes glow-negative {
   from {
     box-shadow: 0 0 100px 100px rgba(200, 0, 0, 0.5);
   }
@@ -53,7 +53,7 @@ body {
     box-shadow: none;
   }
 }
-@keyframes glow-positive {
+@-webkit-keyframes glow-positive {
   from {
     box-shadow: 0 0 100px 100px rgba(0, 128, 0, 1);
   }
