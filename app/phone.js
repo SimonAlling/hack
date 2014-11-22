@@ -1,5 +1,6 @@
 function Phone(options) {
   options = options || {}
+
   this.element = document.createElement("div");
   this.element.classList.add("phone");
 
@@ -38,24 +39,23 @@ Phone.prototype.incrementTicks = function() {
   this.ticks++;
 };
 
-function modulo(a, b) {
-  return (+a % (b = +b) + b) % b;
-}
-
 Phone.prototype.refreshScore = function(lastAlpha) {
   this.scoreElement.innerHTML = this.score + "<br><span>" + this.ticks + "</span>";
   this.scoreElement.style.transform = "rotate(" + ((this.angle) % 360) + "deg)";
 };
 
-
 function isAngleBetween(angle, start, end) {
   if (end < start) {
-    // End time is before start time
+    // End angle is before start time.
     return (angle < end || angle >= start);
   } else {
-    // End time is after start time
+    // End angle is after start time.
     return (angle < end && angle >= start);
   }
+}
+
+function modulo(a, b) {
+  return (+a % (b = +b) + b) % b;
 }
 
 Phone.prototype.isEqualRotation = function(rotation) {
@@ -64,10 +64,6 @@ Phone.prototype.isEqualRotation = function(rotation) {
     modulo(this.angle - this.tolerance, 360),
     modulo(this.angle + this.tolerance, 360)
   );
-  // return (
-  //   rotation >= modulo(this.angle - this.tolerance, 360) &&
-  //   rotation <= modulo(this.angle + this.tolerance, 360)
-  // );
 };
 
 Phone.prototype.glow = function(positive) {
