@@ -4,12 +4,14 @@ body {
 
 .phone {
   position: absolute;
+  top: 400px;
+  left: 300px;
   height: 720px;
   width: 400px;
   background: black;
   border-radius: 64px;
-  -webkit-transition-property: transform;
-  -webkit-transition-duration: 200ms;
+  /*-webkit-transition-property: transform;
+  -webkit-transition-duration: 200ms;*/
 }
 
 .homeButton {
@@ -39,10 +41,10 @@ body {
 }
 
 .glow-negative {
-  -webkit-animation: glow-negative 200ms ease-in;
+  -webkit-animation: glow-negative 400ms ease-in;
 }
 .glow-positive {
-  -webkit-animation: glow-positive 200ms ease-in;
+  -webkit-animation: glow-positive 400ms ease-in;
 }
 
 @-webkit-keyframes glow-negative {
