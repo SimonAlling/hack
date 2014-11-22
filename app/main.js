@@ -1,14 +1,43 @@
-var Phone = require("phone");
-var phone = new Phone();
+
+
 
 var settings = {
-  tickrate = 120; // bpm
+  tickrate: 20, // bpm
+  tolerance: 10
 };
+
+
+var audioContext;
+window.addEventListener('load', initAudio, false);
+function initAudio() {
+  try {
+    // Fix up for prefixing
+    window.AudioContext = window.AudioContext||window.webkitAudioContext;
+    audioContext = new AudioContext();
+  }
+  catch(e) {
+    console.log('Web Audio API is not supported in this browser');
+  }
+}
+
+var Phone = require("phone");
+var phone = new Phone({ tolerance: settings.tolerance });
+
+var randomAngle = require("randomAngle");
 
 var lastAlpha = 0;
 
+var lightGreen = "rgba(60, 192, 40, 0.4)";
+var green = "rgba(0, 128, 0, 1)";
+var red = "rgba(200, 0, 0, 0.5)";
+var white = "white";
+
 function msInterval(tickrate) {
-  return (tickrate / 60) * 1000;
+  return (1 / (tickrate / 60)) * 1000;
+}
+
+function bodyBackground(c) {
+  document.body.style.backgroundColor = c;
 }
 
 var refreshInterval = msInterval(settings.tickrate);
@@ -21,7 +50,7 @@ FULLTILT.getDeviceOrientation({type: "game"})
 
       lastAlpha = euler.alpha;
 
-      console.log("alpha: " + euler.alpha);
+  console.log(lastAlpha, phone.getAngle());
     });
   })
   .catch(function(error) {
@@ -35,14 +64,23 @@ document.body.appendChild(phone.element);
 // }, true)
 
 function tick() {
+  if (phone.isEqualRotation(lastAlpha)) {
+    phone.incrementScore();
+    phone.glow(true);
+  }
   phone.setAngle(randomAngle());
+  phone.glow(false);
 }
 
 // Beat:
-window.setInterval(refreshInterval, tick);
+var timer = setInterval(tick, refreshInterval);
 
 function draw() {
   phone.redraw(lastAlpha);
+
+  bodyBackground(phone.isEqualRotation(lastAlpha) ? lightGreen : white);
+
+  requestAnimationFrame(draw);
 }
 
 requestAnimationFrame(draw);
