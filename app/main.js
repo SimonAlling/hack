@@ -3,14 +3,15 @@ var randomAngle = require("randomAngle");
 
 var settings = {
   tickrate: 40, // bpm
-  tolerance: 15
+  tolerance: 15,
+  totalTicks: 5
 };
 
 var phone = new Phone({ tolerance: settings.tolerance });
 document.body.appendChild(phone.element);
 
 var lightGreen = "rgba(60, 192, 40, 0.4)";
-var white = "white";
+var transparent = "rgba(0, 0, 0, 0)";
 
 function msInterval(tickrate) {
   return (1 / (tickrate / 60)) * 1000;
@@ -47,7 +48,7 @@ setInterval(tick, msInterval(settings.tickrate));
 
 function draw() {
   phone.redraw(lastAlpha);
-  bodyBackground(phone.isEqualRotation(lastAlpha) ? lightGreen : white);
+  bodyBackground(phone.isEqualRotation(lastAlpha) ? lightGreen : transparent);
   requestAnimationFrame(draw);
 }
 requestAnimationFrame(draw);
