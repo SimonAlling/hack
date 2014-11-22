@@ -2,21 +2,31 @@ function Phone(options) {
   options = options || {}
   this.element = document.createElement("div");
   this.element.classList.add("phone");
-  this.rotation = 0;
-  this.threshold = options.threshold || 10
+
+  var homeButton = document.createElement("div");
+  homeButton.classList.add("homeButton");
+  this.element.insertBefore(homeButton, null);
+  this.angle = 0;
+  this.tolerance = options.tolerance || 10
 }
 
+Phone.prototype.redraw = function(alpha) {
+  this.element.style.transform = "rotate(" + ((alpha - this.angle) % 360) + "deg)";
+};
 
-Phone.prototype.setRotation = function(deg) {
-  this.rotation = deg;
-  this.element.style.transform = "rotate(" + -deg + "deg)";
+Phone.prototype.setAngle = function(deg) {
+  this.angle = deg;
+};
+
+Phone.prototype.getAngle = function() {
+  return this.angle;
 };
 
 Phone.prototype.isEqualRotation = function(rotation) {
   return (
     rotation >= this.rotation - this.threshold &&
     rotation <= this.rotation + this.threshold
-  )
+  );
 };
 
 module.exports = Phone;

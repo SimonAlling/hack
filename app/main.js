@@ -1,21 +1,23 @@
-var hello = require("hello");
 var Phone = require("phone");
-
-hello();
+var phone = new Phone();
 
 FULLTILT.getDeviceOrientation({type: "game"})
   .then(function(deviceOrientation) {
     deviceOrientation.listen(function() {
       // do things with deviceOrientation
+      var euler = deviceOrientation.getScreenAdjustedEuler();
+
+      phone.redraw(euler.alpha);
+
+      console.log("alpha: " + euler.alpha);
     });
   })
   .catch(function(error) {
+    console.log(error);
   });
-
-var phone = new Phone();
 
 document.body.appendChild(phone.element);
 
 window.addEventListener("click", function() {
-  phone.setRotation((phone.rotation + 45) % 360);
+  phone.setAngle((phone.getAngle() + 45) % 360);
 }, true)
