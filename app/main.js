@@ -7,6 +7,7 @@ FULLTILT.getDeviceOrientation({type: "game"})
   .then(function(deviceOrientation) {
     deviceOrientation.listen(function() {
       // do things with deviceOrientation
+      var euler = deviceOrientation.getScreenAdjustedEuler();
     });
   })
   .catch(function(error) {
