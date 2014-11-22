@@ -1,0 +1,1 @@
+var promise = FULLTILT.getDeviceOrientation({ 'type': 'game' });
