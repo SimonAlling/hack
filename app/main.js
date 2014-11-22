@@ -67,9 +67,10 @@ function tick() {
   if (phone.isEqualRotation(lastAlpha)) {
     phone.incrementScore();
     phone.glow(true);
+  } else {
+    phone.glow(false);
   }
   phone.setAngle(randomAngle());
-  phone.glow(false);
 }
 
 // Beat:

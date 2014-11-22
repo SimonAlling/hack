@@ -17,3 +17,13 @@ body {
   border-radius: 48px;
   border: 10px rgba(255, 255, 255, 0.6) solid;
 }
+
+.score {
+  text-align: center;
+  width: 400px;
+  color: white;
+  font-size: 144px;
+  position: absolute;
+  top: 288px;
+  left: 0;
+}
