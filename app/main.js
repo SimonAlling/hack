@@ -2,7 +2,7 @@ var Phone = require("phone");
 var randomAngle = require("randomAngle");
 
 var settings = {
-  tickrate: 40, // bpm
+  bpm: 40,
   tolerance: 15,
   totalTicks: 5
 };
@@ -13,8 +13,8 @@ document.body.appendChild(phone.element);
 var lightGreen = "rgba(60, 192, 40, 0.4)";
 var transparent = "rgba(0, 0, 0, 0)";
 
-function msInterval(tickrate) {
-  return (1 / (tickrate / 60)) * 1000;
+function msInterval(bpm) {
+  return (1 / (bpm / 60)) * 1000;
 }
 
 function bodyBackground(c) {
@@ -44,7 +44,7 @@ function tick() {
   }
   phone.setAngle(randomAngle());
 }
-setInterval(tick, msInterval(settings.tickrate));
+setInterval(tick, msInterval(settings.bpm));
 
 function draw() {
   phone.redraw(lastAlpha);
