@@ -6,7 +6,7 @@ var settings = {
   tolerance: 15
 };
 
-var phone = new Phone({ tolerance: settings.tolerance });
+var phone = new Phone({tolerance: settings.tolerance});
 document.body.appendChild(phone.element);
 
 var lightGreen = "rgba(60, 192, 40, 0.4)";

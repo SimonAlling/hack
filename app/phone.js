@@ -41,7 +41,7 @@ Phone.prototype.incrementTicks = function() {
 
 Phone.prototype.refreshScore = function(lastAlpha) {
   this.scoreElement.innerHTML = this.score + "<br><span>" + this.ticks + "</span>";
-  this.scoreElement.style.transform = "rotate(" + ((this.angle) % 360) + "deg)";
+  this.scoreElement.style.transform = "rotate(" + (this.angle % 360) + "deg)";
 };
 
 function isAngleBetween(angle, start, end) {
