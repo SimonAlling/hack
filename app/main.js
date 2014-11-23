@@ -1,5 +1,5 @@
 var Phone = require("phone");
-var randomAngle = require("randomAngle");
+var utils = require("utils");
 
 var settings = {
   bpm: 40,
@@ -8,10 +8,6 @@ var settings = {
 
 var phone = new Phone({tolerance: settings.tolerance});
 document.body.appendChild(phone.element);
-
-function msInterval(bpm) {
-  return (1 / (bpm / 60)) * 1000;
-}
 
 var lastAlpha = 0;
 
@@ -34,9 +30,9 @@ function tick() {
   } else {
     phone.glow(false);
   }
-  phone.setAngle(randomAngle());
+  phone.setAngle(utils.randomAngle());
 }
-setInterval(tick, msInterval(settings.bpm));
+setInterval(tick, utils.msInterval(settings.bpm));
 
 function draw() {
   phone.redraw(lastAlpha);

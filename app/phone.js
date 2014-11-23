@@ -1,3 +1,5 @@
+var utils = require("utils");
+
 function Phone(options) {
   options = options || {}
 
@@ -44,25 +46,11 @@ Phone.prototype.refreshScore = function() {
   this.scoreElement.style.transform = "rotate(" + (this.angle % 360) + "deg)";
 };
 
-function isAngleBetween(angle, start, end) {
-  if (end < start) {
-    // End angle is before start time.
-    return (angle < end || angle >= start);
-  } else {
-    // End angle is after start time.
-    return (angle < end && angle >= start);
-  }
-}
-
-function modulo(a, b) {
-  return (+a % (b = +b) + b) % b;
-}
-
 Phone.prototype.isEqualRotation = function(rotation) {
-  return isAngleBetween(
+  return utils.isValueBetween(
     rotation,
-    modulo(this.angle - this.tolerance, 360),
-    modulo(this.angle + this.tolerance, 360)
+    utils.modulo(this.angle - this.tolerance, 360),
+    utils.modulo(this.angle + this.tolerance, 360)
   );
 };
 
