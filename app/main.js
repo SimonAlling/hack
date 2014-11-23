@@ -36,7 +36,7 @@ FULLTILT.getDeviceOrientation({type: "game"})
     });
     document.body.appendChild(phone.element);
     setInterval(tick, utils.msInterval(settings.bpm));
-    requestAnimationFrame(draw);
+    draw();
   })
   .catch(function(error) {
     document.body.textContent = error;
