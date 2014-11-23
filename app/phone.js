@@ -55,10 +55,9 @@ Phone.prototype.isEqualRotation = function(rotation) {
 };
 
 Phone.prototype.glow = function(positive) {
-  var glowMode = (positive ? "glow-positive" : "glow-negative");
   this.element.classList.remove("glow-positive", "glow-negative");
   this.element.offsetWidth = this.element.offsetWidth;
-  this.element.classList.add(glowMode);
+  this.element.classList.add(positive ? "glow-positive" : "glow-negative");
 };
 
 module.exports = Phone;
