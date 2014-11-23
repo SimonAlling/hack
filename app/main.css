@@ -1,9 +1,8 @@
 html {
   background-color: black;
 }
-
-body {
-  background-color: white;
+.correctPosition {
+  background-color: rgba(60, 192, 40, 0.4);
 }
 
 .phone {

@@ -9,15 +9,8 @@ var settings = {
 var phone = new Phone({tolerance: settings.tolerance});
 document.body.appendChild(phone.element);
 
-var lightGreen = "rgba(60, 192, 40, 0.4)";
-var transparent = "rgba(0, 0, 0, 0)";
-
 function msInterval(bpm) {
   return (1 / (bpm / 60)) * 1000;
-}
-
-function bodyBackground(c) {
-  document.body.style.backgroundColor = c;
 }
 
 var lastAlpha = 0;
@@ -47,7 +40,9 @@ setInterval(tick, msInterval(settings.bpm));
 
 function draw() {
   phone.redraw(lastAlpha);
-  bodyBackground(phone.isEqualRotation(lastAlpha) ? lightGreen : transparent);
+  document.documentElement.classList.toggle(
+    "correctPosition", phone.isEqualRotation(lastAlpha)
+  )
   requestAnimationFrame(draw);
 }
 requestAnimationFrame(draw);
