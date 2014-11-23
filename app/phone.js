@@ -19,7 +19,7 @@ function Phone(options) {
 }
 
 Phone.prototype.redraw = function(alpha) {
-  this.refreshScore(alpha);
+  this.refreshScore();
   this.element.style.transform = "rotate(" + ((alpha - this.angle) % 360) + "deg)";
 };
 
@@ -39,7 +39,7 @@ Phone.prototype.incrementTicks = function() {
   this.ticks++;
 };
 
-Phone.prototype.refreshScore = function(lastAlpha) {
+Phone.prototype.refreshScore = function() {
   this.scoreElement.innerHTML = this.score + "<br><span>" + this.ticks + "</span>";
   this.scoreElement.style.transform = "rotate(" + (this.angle % 360) + "deg)";
 };
