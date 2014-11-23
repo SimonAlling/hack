@@ -3,8 +3,7 @@ var randomAngle = require("randomAngle");
 
 var settings = {
   bpm: 40,
-  tolerance: 15,
-  totalTicks: 5
+  tolerance: 15
 };
 
 var phone = new Phone({ tolerance: settings.tolerance });
