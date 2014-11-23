@@ -1,0 +1,80 @@
+html {
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+.correctPosition {
+  background-color: rgba(60, 192, 40, 0.4);
+}
+
+@width: 48vmin;
+@height: @width*1.8;
+
+.phone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: @height;
+  width: @width;
+  margin-top: -@height/2;
+  margin-left: -@width/2;
+  background: black;
+  border: @width/100 white solid;
+  border-radius: @width/6.25;
+}
+
+.homeButton {
+  @homeButtonWidth: @width/6.25;
+  @borderWidth: @homeButtonWidth/6.4;
+  position: absolute;
+  top: @height/1.2;
+  left: @width/2 - @homeButtonWidth/2 - @borderWidth;
+  width: @homeButtonWidth;
+  padding-bottom: @homeButtonWidth;
+  border: @borderWidth rgba(255, 255, 255, 0.6) solid;
+  border-radius: 50%;
+}
+
+.score {
+  position: absolute;
+  top: @height/2.5;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-family: Cambria, serif;
+  font-size: @height/5;
+  text-align: center;
+  line-height: 1;
+}
+
+.score span {
+  font-size: 0.5em;
+  color: rgb(160, 160, 160);
+  position: relative;
+  top: -1em;
+}
+
+@glow: 400ms ease-in;
+
+.glow-negative {
+  animation: glow-negative @glow;
+}
+.glow-positive {
+  animation: glow-positive @glow;
+}
+
+@keyframes glow-negative {
+  .glow-frames(rgba(200, 0, 0, 0.5));
+}
+@keyframes glow-positive {
+  .glow-frames(rgba(0, 128, 0, 1));
+}
+
+.glow-frames(@color) {
+  from {
+    box-shadow: 0 0 @width/4 @width/4 @color;
+  }
+  to {
+    box-shadow: none;
+  }
+}
