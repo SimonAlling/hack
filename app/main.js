@@ -7,20 +7,7 @@ var settings = {
 };
 
 var phone = new Phone({tolerance: settings.tolerance});
-document.body.appendChild(phone.element);
-
 var lastAlpha = 0;
-
-FULLTILT.getDeviceOrientation({type: "game"})
-  .then(function(deviceOrientation) {
-    deviceOrientation.listen(function() {
-      var euler = deviceOrientation.getScreenAdjustedEuler();
-      lastAlpha = euler.alpha;
-    });
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
 
 function tick() {
   phone.incrementTicks();
@@ -32,7 +19,6 @@ function tick() {
   }
   phone.setAngle(utils.randomAngle());
 }
-setInterval(tick, utils.msInterval(settings.bpm));
 
 function draw() {
   phone.redraw(lastAlpha);
@@ -41,4 +27,17 @@ function draw() {
   )
   requestAnimationFrame(draw);
 }
-requestAnimationFrame(draw);
+
+FULLTILT.getDeviceOrientation({type: "game"})
+  .then(function(deviceOrientation) {
+    deviceOrientation.listen(function() {
+      var euler = deviceOrientation.getScreenAdjustedEuler();
+      lastAlpha = euler.alpha;
+    });
+    document.body.appendChild(phone.element);
+    setInterval(tick, utils.msInterval(settings.bpm));
+    requestAnimationFrame(draw);
+  })
+  .catch(function(error) {
+    document.body.textContent = error;
+  });
