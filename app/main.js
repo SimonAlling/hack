@@ -6,6 +6,8 @@ var settings = {
   tolerance: 15
 };
 
+document.body.removeChild(document.getElementById("noscript"));
+
 var phone = new Phone({tolerance: settings.tolerance});
 var lastAlpha = 0;
 
