@@ -27,7 +27,7 @@ function draw() {
   phone.rotate(lastAlpha);
   document.documentElement.classList.toggle(
     "correctPosition", phone.isEqualRotation(lastAlpha)
-  )
+  );
   requestAnimationFrame(draw);
 }
 
