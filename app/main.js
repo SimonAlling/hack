@@ -20,10 +20,11 @@ function tick() {
     phone.glow(false);
   }
   phone.setAngle(utils.randomAngle());
+  phone.rotateScore();
 }
 
 function draw() {
-  phone.redraw(lastAlpha);
+  phone.rotate(lastAlpha);
   document.documentElement.classList.toggle(
     "correctPosition", phone.isEqualRotation(lastAlpha)
   )

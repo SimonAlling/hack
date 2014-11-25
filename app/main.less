@@ -47,9 +47,15 @@ html {
   font-size: @height/5;
   text-align: center;
   line-height: 1;
+  white-space: pre;
 }
 
-.score span {
+.score::before {
+  content: attr(data-score) "\A";
+}
+
+.score::after {
+  content: attr(data-ticks);
   font-size: 0.5em;
   color: rgb(160, 160, 160);
   position: relative;

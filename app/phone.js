@@ -3,26 +3,29 @@ var utils = require("utils");
 function Phone(options) {
   options = options || {}
 
+  this.angle = 0;
+  this.tolerance = options.tolerance || 10;
+
   this.element = document.createElement("div");
   this.element.classList.add("phone");
 
   this.scoreElement = document.createElement("div");
   this.scoreElement.classList.add("score");
+  this.scoreElement.dataset.score = 0;
+  this.scoreElement.dataset.ticks = 0;
   this.element.appendChild(this.scoreElement);
-
-  this.score = 0;
-  this.ticks = 0;
-  this.angle = 0;
-  this.tolerance = options.tolerance || 10;
 }
 
-Phone.prototype.redraw = function(alpha) {
-  this.refreshScore();
-  this.element.style.transform = "rotate(" + ((alpha - this.angle) % 360) + "deg)";
+Phone.prototype.rotate = function(alpha) {
+  this.element.style.transform = "rotate(" + (alpha - this.angle) + "deg)";
 };
 
-Phone.prototype.setAngle = function(deg) {
-  this.angle = deg;
+Phone.prototype.rotateScore = function() {
+  this.scoreElement.style.transform = "rotate(" + this.angle + "deg)";
+};
+
+Phone.prototype.setAngle = function(angle) {
+  this.angle = angle;
 };
 
 Phone.prototype.getAngle = function() {
@@ -30,16 +33,11 @@ Phone.prototype.getAngle = function() {
 };
 
 Phone.prototype.incrementScore = function() {
-  this.score++;
+  this.scoreElement.dataset.score++;
 };
 
 Phone.prototype.incrementTicks = function() {
-  this.ticks++;
-};
-
-Phone.prototype.refreshScore = function() {
-  this.scoreElement.innerHTML = this.score + "<br><span>" + this.ticks + "</span>";
-  this.scoreElement.style.transform = "rotate(" + (this.angle % 360) + "deg)";
+  this.scoreElement.dataset.ticks++;
 };
 
 Phone.prototype.isEqualRotation = function(rotation) {
@@ -52,7 +50,7 @@ Phone.prototype.isEqualRotation = function(rotation) {
 
 Phone.prototype.glow = function(positive) {
   this.element.classList.remove("glow-positive", "glow-negative");
-  this.element.offsetWidth = this.element.offsetWidth;
+  this.element.offsetWidth = this.element.offsetWidth; // Force animation.
   this.element.classList.add(positive ? "glow-positive" : "glow-negative");
 };
 
