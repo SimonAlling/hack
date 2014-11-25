@@ -1,7 +1,7 @@
 var utils = require("utils");
 
 function Phone(options) {
-  options = options || {}
+  options = options || {};
 
   this.angle = 0;
   this.tolerance = options.tolerance || 10;
