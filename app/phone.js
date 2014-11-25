@@ -6,10 +6,6 @@ function Phone(options) {
   this.element = document.createElement("div");
   this.element.classList.add("phone");
 
-  var homeButton = document.createElement("div");
-  homeButton.classList.add("homeButton");
-  this.element.appendChild(homeButton);
-
   this.scoreElement = document.createElement("div");
   this.scoreElement.classList.add("score");
   this.element.appendChild(this.scoreElement);
